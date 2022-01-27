@@ -25,16 +25,23 @@ function App() {
   }, [])
 
   useEffect(() => {
-      fetch("https://v2.jokeapi.dev/joke/Any?amount=20")
+      fetch("https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&amount=10")
       .then(response => response.json())
       // Step 4: Now we can set meme => to an an array of images we received from the fetch response
-      .then(data => setJokes(data))
+      .then(data => setJokes(data.jokes))
     }, [])
   
 
  // console.log(memes)
  // console.log(memes[Math.floor(Math.random()*memes.length)])
-console.log(jokes.jokes)
+ const handleJokeClick = () => {
+   console.log(jokes)
+   //debugger
+   let oneJoke = jokes[Math.floor(Math.random()*jokes.length)]
+   console.log(oneJoke)
+    setJoke(oneJoke)
+ }
+
 
  // Step Five: if we want to get a random image each time, we can use the following.
  // The easiest way to down to the one piece of data you want is to use debugger and console.logs
@@ -49,9 +56,14 @@ console.log(jokes.jokes)
   // Reminder if memeImage is null it won't attempt to render the image
   return (
     <div className="App">
-    <h3>Take a Break, Get a Random Meme</h3>
+    <h3>I need a break!</h3>
     {memeImage && <img src={memeImage} alt="meme"></img>}
-    <button id="meme-button" onClick={handleMemeClick}>I need a break! Get me a meme.</button>
+    {joke && <h4>{joke.setup} <br></br>  <br></br>  {joke.delivery}</h4>}
+
+   
+    <button id="meme-button" onClick={handleMemeClick}>Get me a MEME</button>
+    <button id="joke-button" onClick={handleJokeClick}>Get me a JOKE</button>
+ 
     </div>
   );
 }

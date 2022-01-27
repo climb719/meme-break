@@ -10,12 +10,12 @@
   color: black;
 }
 
+
 #meme-button {
   padding: 16px;
   margin-top: 5px;
   margin-left: 4px;
   border: none;
-  width: 60%;
   cursor: pointer;
   outline: none;
   background: linear-gradient(
@@ -24,14 +24,15 @@
     rgb(22, 79, 202)
   );
   color: black;
+  font-size: 16px;
 }
+
 
 #joke-button {
   padding: 16px;
   margin-top: 5px;
   margin-left: 4px;
   border: none;
-
   cursor: pointer;
   outline: none;
   background: linear-gradient(
@@ -40,7 +41,9 @@
     rgb(5, 57, 85)
   );
   color: black;
+  font-size: 16px;
 }
+
 
 img {
   display: block;
